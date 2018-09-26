@@ -3,8 +3,6 @@ print "no of constant : ? "
 n=int(raw_input())
 
 
-
-
 def make(n) :
 	a=0
 	d={}
@@ -45,7 +43,7 @@ printing_table(d,n,list_of_statement)
 
 
 
-print "how many compound statement"
+print "how many compound statement ? "
 
 no_of_statement=int(raw_input())
 
@@ -197,44 +195,39 @@ def evaluating_expression(list_of_statement,d,n) :
 		converted_postfix=postfix(i)
 		print converted_postfix
 		d[i]=evaluating_postfix(converted_postfix,d,n)
-		
-
-
-
-
-
+	
 
 
 def checking_tautology(list_of_statement,d) :
 	for i in list_of_statement :
 		if not False in d[i] :
-			print i + "is Tautaulogy"
+			print i + " is Tautaulogy"
 
 def checking_contradiction(list_of_statement,d) :
 	for i in list_of_statement :
 		if not True in d[i] :
-			print i + "is self-contradictory"
+			print i + " is self-contradictory"
 
 def checking_contingencies(list_of_statement,d) :
 	for i in list_of_statement :
 		if True in d[i] and False in d[i] :
-			print i + "is contingencies"
+			print i + " is contingencies"
 
 
 def checking_equivalence(list_of_statement,d) :
 	for i in range(len(list_of_statement)) :
 		for j in range(i+1,len(list_of_statement)) :
 			if d[list_of_statement[i]]==d[list_of_statement[j]] :
-				print list_of_statement[i] + "and" + list_of_statement[j] + "are equivalent"
+				print list_of_statement[i] + " and " + list_of_statement[j] + " are equivalent"
 
 
 def checking_entailment(list_of_statement,d,n) :
 	for i in range(len(list_of_statement)) :
 		for j in range(i+1,len(list_of_statement)) :
 			if not False in conditional(d[list_of_statement[i]],d[list_of_statement[j]],n) :
-				print  list_of_statement[i] + "and" + list_of_statement[j] + "are entailment"
+				print  list_of_statement[i] + " and " + list_of_statement[j] + " are entailment"
 			if not False in conditional(d[list_of_statement[j]],d[list_of_statement[i]],n) :
-				print  list_of_statement[j] + "and" + list_of_statement[i] + "are entailment"
+				print  list_of_statement[j] + " and " + list_of_statement[i] + " are entailment"
 
 
 
